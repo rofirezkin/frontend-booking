@@ -1,9 +1,10 @@
-import { render } from "@testing-library/react";
 import React from "react";
-import Button from "./index";
-import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
+import { render } from "@testing-library/react";
+import { BrowserRouter as Router } from "react-router-dom";
 
-test("Should not allow click button if isDisabled is present", () => {
+import Button from "./index";
+
+test("Should not allowed click button if isDisabled is present", () => {
   const { container } = render(<Button isDisabled></Button>);
 
   expect(container.querySelector("span.disabled")).toBeInTheDocument();
@@ -17,7 +18,7 @@ test("Should render loading/spinner", () => {
 });
 
 test("Should render <a> tag", () => {
-  const { container } = render(<Button type="Link" isExternal></Button>);
+  const { container } = render(<Button type="link" isExternal></Button>);
 
   expect(container.querySelector("a")).toBeInTheDocument();
 });
@@ -25,7 +26,7 @@ test("Should render <a> tag", () => {
 test("Should render <Link> component", () => {
   const { container } = render(
     <Router>
-      <Button href="" type="Link"></Button>
+      <Button href="" type="link"></Button>
     </Router>
   );
 

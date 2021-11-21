@@ -10,7 +10,6 @@ function App() {
           <Route path="/" element={<LandingPage />}></Route>
         </Routes>
       </BrowserRouter>
-      Haii dunia
     </div>
   );
 }
