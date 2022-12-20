@@ -6,7 +6,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 const setup = () => {
   const breadcrumbList = [
     { pageTitle: "Home", pageHref: "" },
-    { pageTitle: "House Details", pageHref: "" },
+    { pageTitle: "House Details", pageHref: "" }
   ];
   const { container } = render(
     <Router>
@@ -16,7 +16,7 @@ const setup = () => {
   const breadcrumb = container.querySelector(`.breadcrumb`);
 
   return {
-    breadcrumb,
+    breadcrumb
   };
 };
 

@@ -1,20 +1,17 @@
 import React from "react";
+import Fade from "react-reveal/Fade";
 
 import ImageHero from "assets/images/img-hero.jpg";
-import ImageHero_ from "assets/images/frame.jpg";
-import IconCities from "assets/images/icons/ic_cities.svg";
-import IconTraveller from "assets/images/icons/ic_traveler.svg";
-import IconTreasure from "assets/images/icons/ic_treasure.svg";
+import ImageHero_ from "assets/images/img-hero-frame.jpg";
+
 import Button from "elements/Button";
-import Fade from "react-reveal/Fade";
 
 import formatNumber from "utils/formatNumber";
 
 export default function Hero(props) {
   function showMostPicked() {
-    console.log("ddddddads", props.refMostPicked);
     window.scrollTo({
-      top: props.refMostPicked - 30,
+      top: props.refMostPicked.current.offsetTop - 30,
       behavior: "smooth",
     });
   }
@@ -25,8 +22,8 @@ export default function Hero(props) {
         <div className="row align-items-center">
           <div className="col-auto pr-5" style={{ width: 530 }}>
             <h1 className="font-weight-bold line-height-1 mb-3">
-              Forget Busy Work,
-              <br /> Start Next Vacation
+              Forget Busy Work, <br />
+              Start Next Vacation
             </h1>
             <p
               className="mb-4 font-weight-light text-gray-500 w-75"
@@ -43,12 +40,13 @@ export default function Hero(props) {
             >
               Show Me Now
             </Button>
-            <div className="row " style={{ marginTop: 80 }}>
-              <div className="col-auto" style={{ marginRight: 15 }}>
+
+            <div className="row" style={{ marginTop: 80 }}>
+              <div className="col-auto" style={{ marginRight: 35 }}>
                 <img
                   width="36"
                   height="36"
-                  src={IconTraveller}
+                  src={`${process.env.PUBLIC_URL}/images/icon-traveler.svg`}
                   alt={`${props.data.travelers} Travelers`}
                 />
                 <h6 className="mt-3">
@@ -58,12 +56,12 @@ export default function Hero(props) {
                   </span>
                 </h6>
               </div>
-              <div className="col-auto" style={{ marginRight: 15 }}>
+              <div className="col-auto" style={{ marginRight: 35 }}>
                 <img
                   width="36"
                   height="36"
-                  src={IconTreasure}
-                  alt={`${props.data.treasures} treasures`}
+                  src={`${process.env.PUBLIC_URL}/images/icon-treasure.svg`}
+                  alt={`${props.data.treasures} Treasures`}
                 />
                 <h6 className="mt-3">
                   {formatNumber(props.data.treasures)}{" "}
@@ -76,8 +74,8 @@ export default function Hero(props) {
                 <img
                   width="36"
                   height="36"
-                  src={IconCities}
-                  alt={`${props.data.cities} cities`}
+                  src={`${process.env.PUBLIC_URL}/images/icon-cities.svg`}
+                  alt={`${props.data.cities} Cities`}
                 />
                 <h6 className="mt-3">
                   {formatNumber(props.data.cities)}{" "}
@@ -88,6 +86,7 @@ export default function Hero(props) {
               </div>
             </div>
           </div>
+
           <div className="col-6 pl-5">
             <div style={{ width: 520, height: 410 }}>
               <img

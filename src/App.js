@@ -1,21 +1,26 @@
 import "./assets/scss/style.scss";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { createBrowserHistory } from "history";
+import { BrowserRouter, Router, Route } from "react-router-dom";
 import LandingPage from "pages/LandingPage";
 import DetailsPage from "pages/DetailsPage";
 import Checkout from "pages/Checkout";
 import Example from "pages/Example";
+import NotFound from "pages/404";
+import "assets/scss/style.scss";
+
+const history = createBrowserHistory({
+  basename: process.env.PUBLIC_URL,
+});
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<LandingPage />}></Route>
-          <Route path="/properties/:id" element={<DetailsPage />}></Route>
-          <Route path="/checkout" element={<Checkout />}></Route>
-          <Route path="/example" element={<Example />}></Route>
-        </Routes>
-      </BrowserRouter>
+      <Router history={history} basename={process.env.PUBLIC_URL}>
+        <Route exact path="/" component={LandingPage} />
+        <Route exact path="/properties/:id" component={DetailsPage} />
+        <Route path="/checkout" component={Checkout} />
+        <Route path="/example" component={Example} />
+      </Router>
     </div>
   );
 }

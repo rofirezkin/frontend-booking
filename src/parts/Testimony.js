@@ -1,8 +1,10 @@
 import React from "react";
-import Star from "elements/Start";
-import TestimonyAccent from "assets/images/testimonial-frame.jpg";
-import Button from "elements/Button";
 import Fade from "react-reveal/Fade";
+
+import TestimonyAccent from "assets/images/testimonial-landingpages-frame.jpg";
+
+import Star from "elements/Star";
+import Button from "elements/Button";
 
 export default function Testimony({ data }) {
   return (
@@ -12,19 +14,19 @@ export default function Testimony({ data }) {
           <div className="col-auto" style={{ marginRight: 60 }}>
             <div
               className="testimonial-hero"
-              style={{ margin: "30px 0 0 30px" }}
+              style={{ margin: `30px 0 0 30px` }}
             >
               <img
-                src={data.imageUrl}
-                alt="testimonial"
-                style={{ zIndex: 1 }}
+                src={`${process.env.REACT_APP_HOST}/${data.imageUrl}`}
+                alt="Testimonial"
                 className="position-absolute"
+                style={{ zIndex: 1 }}
               />
               <img
                 src={TestimonyAccent}
-                alt="testimonial frame"
-                style={{ margin: "-30px 0 0 -30px" }}
+                alt="Testimonial frame"
                 className="position-absolute"
+                style={{ margin: `-30px 0 0 -30px` }}
               />
             </div>
           </div>
@@ -37,6 +39,7 @@ export default function Testimony({ data }) {
             <span className="text-gray-500">
               {data.familyName}, {data.familyOccupation}
             </span>
+
             <div>
               <Button
                 className="btn px-5"

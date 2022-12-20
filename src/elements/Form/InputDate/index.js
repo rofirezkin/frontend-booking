@@ -23,6 +23,7 @@ export default function Date(props) {
     };
     props.onChange(target);
   };
+
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
 

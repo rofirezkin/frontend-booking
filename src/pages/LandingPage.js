@@ -1,44 +1,51 @@
-import Header from "parts/Header";
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
-import landingPage from "json/landingPage.json";
+import Header from "parts/Header";
 import Hero from "parts/Hero";
 import MostPicked from "parts/MostPicked";
 import Categories from "parts/Categories";
 import Testimony from "parts/Testimony";
 import Footer from "parts/Footer";
-export default class LandingPage extends Component {
+
+import { fetchPage } from "store/actions/page";
+class LandingPage extends Component {
   constructor(props) {
     super(props);
     this.refMostPicked = React.createRef();
-    this.state = {
-      isTracking: "",
-    };
   }
 
   componentDidMount() {
-    console.log("dd", this.refMostPicked.current.offsetTop);
-    const data = this.refMostPicked.current.offsetTop;
+    document.title = "Staycation | Home";
+    window.scrollTo(0, 0);
 
-    this.setState({
-      isTracking: data,
-    });
+    if (!this.props.page.landingPage)
+      this.props.fetchPage(`/landing-page`, "landingPage");
   }
 
   render() {
-    console.log("dffdd", this.state.isTracking);
+    const { page } = this.props;
+
+    if (!page.hasOwnProperty("landingPage")) return null;
+
     return (
       <>
         <Header {...this.props}></Header>
-        <Hero refMostPicked={this.state.isTracking} data={landingPage.hero} />
+        <Hero refMostPicked={this.refMostPicked} data={page.landingPage.hero} />
         <MostPicked
           refMostPicked={this.refMostPicked}
-          data={landingPage.mostPicked}
+          data={page.landingPage.mostPicked}
         />
-        <Categories data={landingPage.categories} />
-        <Testimony data={landingPage.testimonial} />
+        <Categories data={page.landingPage.category} />
+        <Testimony data={page.landingPage.testimonial} />
         <Footer />
       </>
     );
   }
 }
+
+const mapStateToProps = (state) => ({
+  page: state.page,
+});
+
+export default connect(mapStateToProps, { fetchPage })(LandingPage);

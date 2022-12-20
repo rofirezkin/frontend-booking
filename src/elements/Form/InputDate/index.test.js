@@ -1,6 +1,6 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
-import { screen } from "@testing-library/react";
+import { screen } from "@testing-library/dom";
 import InputDate from "./index";
 
 class TestInput extends React.Component {
@@ -58,7 +58,7 @@ test("Should show date picker when click input field", () => {
   //   screen.debug();
   fireEvent.click(input, { button: 1 });
   const datePickerWrapper = container.querySelector(`.date-range-wrapper`);
-    screen.debug();
+  //   screen.debug();
 
   expect(datePickerWrapper).toBeInTheDocument();
 });
