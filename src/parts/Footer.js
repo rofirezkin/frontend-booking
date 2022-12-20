@@ -1,7 +1,8 @@
 import React from "react";
 
 import Button from "elements/Button";
-import IconText from "parts/IconText";
+import IconText from "./IconText";
+
 export default function Footer() {
   return (
     <footer>
