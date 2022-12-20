@@ -1,7 +1,5 @@
 import React from "react";
 
-import { withRouter } from "react-router-dom";
-
 import Button from "elements/Button";
 
 function NotFound(props) {
@@ -33,4 +31,4 @@ function NotFound(props) {
   );
 }
 
-export default withRouter(NotFound);
+export default NotFound;
