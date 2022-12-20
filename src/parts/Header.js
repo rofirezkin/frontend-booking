@@ -3,13 +3,15 @@ import Fade from "react-reveal/Fade";
 
 import Button from "elements/Button";
 import IconText from "./IconText";
+import { useLocation } from "react-router-dom";
 
-export default function Header(props) {
+export default function Header({ isCentered }) {
+  const location = useLocation();
   const getNavLinkClass = (path) => {
-    return props.location.pathname === path ? " active" : "";
+    return location.pathname === path ? "active" : "";
   };
 
-  if (props.isCentered)
+  if (isCentered)
     return (
       <Fade>
         <header className="spacing-sm">

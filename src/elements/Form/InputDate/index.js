@@ -43,9 +43,9 @@ export default function Date(props) {
     focus.indexOf(1) < 0 && setIsShowed(false);
   };
 
-  const displayDate = `${value.startDate ? formatDate(value.startDate) : ""}${
-    value.endDate ? " - " + formatDate(value.endDate) : ""
-  }`;
+  // const displayDate = `${value.startDate ? formatDate(value.startDate) : ""}${
+  //   value.endDate ? " - " + formatDate(value.endDate) : ""
+  // }`;
 
   return (
     <div
@@ -62,7 +62,7 @@ export default function Date(props) {
           readOnly
           type="text"
           className="form-control"
-          value={displayDate}
+          value={"20022"}
           placeholder={placeholder}
           onClick={() => setIsShowed(!isShowed)}
         />

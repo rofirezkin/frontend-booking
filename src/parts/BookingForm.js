@@ -6,6 +6,7 @@ import Button from "elements/Button";
 import { InputNumber, InputDate } from "elements/Form";
 
 class BookingForm extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -64,16 +65,15 @@ class BookingForm extends Component {
   }
 
   startBooking = () => {
-    const { data } = this.state;
-    this.props.startBooking({
-      _id: this.props.itemDetails._id,
-      duration: data.duration,
-      date: {
-        startDate: data.date.startDate,
-        endDate: data.date.endDate,
-      },
-    });
-    this.props.history.push("/checkout");
+    // const { data } = this.state;
+    // this.props.startBooking({
+    //   _id: this.props.itemDetails._id,
+    //   duration: data.duration,
+    //   date: {
+    //     startDate: data.date.startDate,
+    //     endDate: data.date.endDate,
+    //   },
+    // });
   };
 
   render() {
